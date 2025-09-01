@@ -3,12 +3,17 @@ import chalk from 'chalk';
 
 import { runTUI } from './tui';
 import type {
+    AirCodeMirrorData,
     BlockMetrics,
     TokenMetrics
 } from './types';
 import type { RenderContext } from './types/RenderContext';
 import type { StatusJSON } from './types/StatusJSON';
 import { StatusJSONSchema } from './types/StatusJSON';
+import {
+    checkAndResetAirCodeMirrorCredits,
+    getAirCodeMirrorData
+} from './utils/airCodeMirror';
 import { updateColorMap } from './utils/colors';
 import {
     loadSettings,
@@ -74,6 +79,9 @@ async function renderMultipleLines(data: StatusJSON) {
     // Check if block timer is needed
     const hasBlockTimer = lines.some(line => line.some(item => item.type === 'block-timer'));
 
+    // Check if airCodeMirror credits is needed
+    const hasAirCodeMirrorCredits = lines.some(line => line.some(item => item.type === 'aircode-mirror-credits'));
+
     let tokenMetrics: TokenMetrics | null = null;
     if (hasTokenItems && data.transcript_path)
         tokenMetrics = await getTokenMetrics(data.transcript_path);
@@ -86,12 +94,17 @@ async function renderMultipleLines(data: StatusJSON) {
     if (hasBlockTimer && data.transcript_path)
         blockMetrics = getBlockMetrics(data.transcript_path);
 
+    let airCodeMirrorData: AirCodeMirrorData | null = null;
+    if (hasAirCodeMirrorCredits)
+        airCodeMirrorData = await getAirCodeMirrorData(settings);
+
     // Create render context
     const context: RenderContext = {
         data,
         tokenMetrics,
         sessionDuration,
         blockMetrics,
+        airCodeMirrorData,
         isPreview: false
     };
 
@@ -160,6 +173,12 @@ async function renderMultipleLines(data: StatusJSON) {
 async function main() {
     // Check if we're in a piped/non-TTY environment first
     if (!process.stdin.isTTY) {
+        // Check if this is a session end hook
+        if (process.env.CLAUDE_SESSION_END === 'true') {
+            await handleSessionEnd();
+            return;
+        }
+
         // We're receiving piped input
         const input = await readStdin();
         if (input && input.trim() !== '') {
@@ -190,6 +209,17 @@ async function main() {
             await saveSettings(newSettings);
         }
         runTUI();
+    }
+}
+
+async function handleSessionEnd(): Promise<void> {
+    try {
+        const settings = await loadSettings();
+        if (settings.airCodeMirror?.enabled && settings.airCodeMirror.autoResetEnabled) {
+            await checkAndResetAirCodeMirrorCredits(settings);
+        }
+    } catch {
+        // Silent error handling
     }
 }
 

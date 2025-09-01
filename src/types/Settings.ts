@@ -61,6 +61,13 @@ export const SettingsSchema = z.object({
     updatemessage: z.object({
         message: z.string().nullable().optional(),
         remaining: z.number().nullable().optional()
+    }).optional(),
+    airCodeMirror: z.object({
+        enabled: z.boolean().default(false),
+        cookies: z.string().optional(),
+        creditThreshold: z.number().default(1000),
+        autoResetEnabled: z.boolean().default(true),
+        cacheDuration: z.number().default(30)
     }).optional()
 });
 
