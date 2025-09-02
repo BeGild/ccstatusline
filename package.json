@@ -1,6 +1,6 @@
 {
   "name": "ccmirrorstaline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable status line formatter for Claude Code CLI with AirCodeMirror integration",
   "module": "src/ccmirrorstaline.ts",
   "type": "module",
