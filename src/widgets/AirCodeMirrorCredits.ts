@@ -14,7 +14,7 @@ export class AirCodeMirrorCreditsWidget implements Widget {
         return { displayText: this.getDisplayName() };
     }
 
-    render(item: WidgetItem, context: RenderContext, settings: Settings): string | null {
+        render(item: WidgetItem, context: RenderContext, settings: Settings): string | null {
         if (context.isPreview) {
             return item.rawValue ? '💎 12345' : 'Credits: 💎 12345';
         }
@@ -38,8 +38,8 @@ export class AirCodeMirrorCreditsWidget implements Widget {
         const planIcon = this.getPlanIcon(context.airCodeMirrorData.plan);
         const creditsText = context.airCodeMirrorData.credits.toString();
 
-        return item.rawValue
-            ? `${planIcon} ${creditsText}`
+        return item.rawValue 
+            ? `${planIcon} ${creditsText}` 
             : `Credits: ${planIcon} ${creditsText}`;
     }
 
