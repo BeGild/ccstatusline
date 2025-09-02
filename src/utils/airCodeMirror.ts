@@ -1,3 +1,10 @@
+/**
+ * AirCodeMirror Integration Utilities
+ * 
+ * API integration patterns inspired by cc-aicodemirror-statusline-plus
+ * https://github.com/[original-repo-path]
+ */
+
 import type { AirCodeMirrorData } from '../types/RenderContext';
 import type { Settings } from '../types/Settings';
 

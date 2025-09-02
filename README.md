@@ -14,7 +14,11 @@
 **🎨 A highly customizable status line formatter for Claude Code CLI with AirCodeMirror integration**
 *Display model info, git branch, token usage, AirCodeMirror metrics, and other information in your terminal*
 
-> **🙏 Acknowledgments**: This project is forked from the excellent [ccstatusline](https://github.com/hesreallyhim/ccstatusline) by [@hesreallyhim](https://github.com/hesreallyhim). We extend our gratitude for the original foundation and continue to build upon their innovative work.
+> **🙏 Acknowledgments**: This project builds upon two excellent open source foundations:
+> - Originally forked from [ccstatusline](https://github.com/hesreallyhim/ccstatusline) by [@hesreallyhim](https://github.com/hesreallyhim) for the core status line functionality
+> - Inspired by [cc-aicodemirror-statusline-plus](https://github.com/) for the AirCodeMirror integration concepts and API patterns
+> 
+> We extend our gratitude to both projects for their innovative work and open source contributions to the Claude Code community.
 
 [![npm version](https://img.shields.io/npm/v/ccmirrorstaline.svg)](https://www.npmjs.com/package/ccmirrorstaline)
 [![npm downloads](https://img.shields.io/npm/dm/ccmirrorstaline.svg)](https://www.npmjs.com/package/ccmirrorstaline)
@@ -404,6 +408,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ### 🙏 Built Upon Excellence
 
 - **[ccstatusline](https://github.com/hesreallyhim/ccstatusline)** by [@hesreallyhim](https://github.com/hesreallyhim) - The original, innovative status line formatter that served as the foundation for this project
+- **[cc-aicodemirror-statusline-plus](https://github.com/)** - Provided inspiration for AirCodeMirror integration patterns and API implementations
 - **[awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)** - Comprehensive collection of Claude Code tools and resources
 
 ### 🤝 Community Ecosystem
