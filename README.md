@@ -14,9 +14,9 @@
 **🎨 A highly customizable status line formatter for Claude Code CLI with AirCodeMirror integration**
 *Display model info, git branch, token usage, AirCodeMirror metrics, and other information in your terminal*
 
-> **🙏 Acknowledgments**: This project builds upon two excellent open source foundations:
-> - Originally forked from [ccstatusline](https://github.com/hesreallyhim/ccstatusline) by [@hesreallyhim](https://github.com/hesreallyhim) for the core status line functionality
-> - Inspired by [cc-aicodemirror-statusline-plus](https://github.com/Bozhu12/cc-aicodemirror-statusline-plus) by [@Bozhu12](https://github.com/Bozhu12) for the AirCodeMirror integration concepts and API patterns
+> **🙏 Acknowledgments**: This project builds upon excellent open source foundations:
+> - **Core functionality** forked from [ccstatusline](https://github.com/hesreallyhim/ccstatusline) by [@hesreallyhim](https://github.com/hesreallyhim) - All the powerful status line features (widgets, TUI, PowerLine support, git integration, token tracking, etc.) come from this amazing project
+> - **AirCodeMirror integration** inspired by [cc-aicodemirror-statusline-plus](https://github.com/Bozhu12/cc-aicodemirror-statusline-plus) by [@Bozhu12](https://github.com/Bozhu12) - API patterns and concepts for AirCodeMirror credits tracking
 > 
 > We extend our gratitude to both projects for their innovative work and open source contributions to the Claude Code community.
 
@@ -52,24 +52,16 @@
 
 ### v1.0.0 - Initial Release (Fork from ccstatusline)
 
-🎉 **Welcome to ccmirrorstaline!** This is the inaugural release of our fork, building upon the excellent foundation of ccstatusline with exciting new features:
+🎉 **Welcome to ccmirrorstaline!** This is a fork of ccstatusline with **AirCodeMirror integration** added:
 
-#### 🪞 **AirCodeMirror Integration**
+#### 🪞 **NEW: AirCodeMirror Integration**
+*The only new functionality added to ccstatusline*
 - **AirCodeMirror Credits Display** - New dedicated widget to track and display accumulated AirCodeMirror credits
 - **Auto-Reset Functionality** - Smart automatic credit reset capabilities for better session tracking
 - **Real-time Metrics** - Live updates of your AirCodeMirror usage statistics
 
-#### 🎨 **Enhanced PowerLine Experience**
-- **Improved Rendering** - Fixed merged items display when PowerLine mode is active with auto-alignment
-- **Better Visual Consistency** - Seamless widget alignment across multiple status lines
-
-#### 🔧 **Core Improvements**
-- **Enhanced TUI Components** - Improved interactive configuration menus
-- **Better Settings Management** - More robust configuration handling and migration
-- **Code Quality** - Minor formatting adjustments and stability improvements
-
-#### 🙏 **Inherited Features from ccstatusline**
-All the powerful features from the original project:
+#### 🙏 **All Other Features Inherited from ccstatusline**
+*All the powerful functionality below comes from the original ccstatusline project:*
 - **👾 Emoji Support** - Full emoji support in custom text widgets
 - **🚀 Unlimited Status Lines** - No limit on the number of configurable status lines
 - **🌳 Git Integration** - Comprehensive git status and worktree support
@@ -88,6 +80,7 @@ All the powerful features from the original project:
   - Enhanced cursor display in numeric input fields
 
 ### v2.0.2 - Block Timer Widget
+*Inherited from ccstatusline*
 
 ![Block Timer](https://raw.githubusercontent.com/sirmalloc/ccmirrorstaline/main/screenshots/blockTimerSmall.png)
 
@@ -98,6 +91,7 @@ All the powerful features from the original project:
   - Automatically detects block boundaries from transcript timestamps
 
 ### v2.0.0 - Powerline Support & Enhanced Themes
+*Inherited from ccstatusline*
 - **⚡ Powerline Mode** - Beautiful Powerline-style status lines with arrow separators and customizable caps
 - **🎨 Built-in Themes** - Multiple pre-configured themes that you can copy and customize
 - **🌈 Advanced Color Support** - Basic (16), 256-color (with custom ANSI codes), and truecolor (with hex codes) modes
@@ -110,7 +104,10 @@ All the powerful features from the original project:
 
 ## ✨ Features
 
+*Note: Unless specifically marked as "NEW", all features are inherited from the excellent ccstatusline project*
+
 - **📊 Real-time Metrics** - Display model name, git branch, token usage, session duration, block timer, and more
+- **🪞 AirCodeMirror Integration** - **NEW**: Track and display AirCodeMirror credits with auto-reset functionality  
 - **🎨 Fully Customizable** - Choose what to display and customize colors for each element
 - **⚡ Powerline Support** - Beautiful Powerline-style rendering with arrow separators, caps, and custom fonts
 - **📐 Multi-line Support** - Configure multiple independent status lines
@@ -155,7 +152,10 @@ Once configured, ccmirrorstaline automatically formats your Claude Code status l
 
 ### 📊 Available Widgets
 
+*Note: Unless marked as "NEW", all widgets are inherited from ccstatusline*
+
 - **Model Name** - Shows the current Claude model (e.g., "Claude 3.5 Sonnet")
+- **AirCodeMirror Credits** - **NEW**: Shows accumulated AirCodeMirror credits with auto-reset functionality  
 - **Git Branch** - Displays current git branch name
 - **Git Changes** - Shows uncommitted insertions/deletions (e.g., "+42,-10")
 - **Git Worktree** - Shows the name of the current git worktree
@@ -407,8 +407,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### 🙏 Built Upon Excellence
 
-- **[ccstatusline](https://github.com/hesreallyhim/ccstatusline)** by [@hesreallyhim](https://github.com/hesreallyhim) - The original, innovative status line formatter that served as the foundation for this project
-- **[cc-aicodemirror-statusline-plus](https://github.com/Bozhu12/cc-aicodemirror-statusline-plus)** by [@Bozhu12](https://github.com/Bozhu12) - Provided inspiration for AirCodeMirror integration patterns and API implementations
+- **[ccstatusline](https://github.com/hesreallyhim/ccstatusline)** by [@hesreallyhim](https://github.com/hesreallyhim) - **The complete foundation** for this project. All core functionality, widgets, TUI interface, PowerLine support, git integration, token tracking, and more comes from this excellent project
+- **[cc-aicodemirror-statusline-plus](https://github.com/Bozhu12/cc-aicodemirror-statusline-plus)** by [@Bozhu12](https://github.com/Bozhu12) - **Inspiration for AirCodeMirror integration only** - provided the concepts and API patterns for adding AirCodeMirror credits tracking
 - **[awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)** - Comprehensive collection of Claude Code tools and resources
 
 ### 🤝 Community Ecosystem
