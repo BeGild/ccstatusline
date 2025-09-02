@@ -9,23 +9,25 @@
                                                      
 </pre>
 
-# ccstatusline
+# ccmirrorstaline
 
-**🎨 A highly customizable status line formatter for Claude Code CLI**
-*Display model info, git branch, token usage, and other metrics in your terminal*
+**🎨 A highly customizable status line formatter for Claude Code CLI with AirCodeMirror integration**
+*Display model info, git branch, token usage, AirCodeMirror metrics, and other information in your terminal*
 
-[![npm version](https://img.shields.io/npm/v/ccstatusline.svg)](https://www.npmjs.com/package/ccstatusline)
-[![npm downloads](https://img.shields.io/npm/dm/ccstatusline.svg)](https://www.npmjs.com/package/ccstatusline)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sirmalloc/ccstatusline/blob/main/LICENSE)
-[![Node.js Version](https://img.shields.io/node/v/ccstatusline.svg)](https://nodejs.org)
-[![install size](https://packagephobia.com/badge?p=ccstatusline)](https://packagephobia.com/result?p=ccstatusline)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/sirmalloc/ccstatusline/graphs/commit-activity)
+> **🙏 Acknowledgments**: This project is forked from the excellent [ccstatusline](https://github.com/hesreallyhim/ccstatusline) by [@hesreallyhim](https://github.com/hesreallyhim). We extend our gratitude for the original foundation and continue to build upon their innovative work.
+
+[![npm version](https://img.shields.io/npm/v/ccmirrorstaline.svg)](https://www.npmjs.com/package/ccmirrorstaline)
+[![npm downloads](https://img.shields.io/npm/dm/ccmirrorstaline.svg)](https://www.npmjs.com/package/ccmirrorstaline)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sirmalloc/ccmirrorstaline/blob/main/LICENSE)
+[![Node.js Version](https://img.shields.io/node/v/ccmirrorstaline.svg)](https://nodejs.org)
+[![install size](https://packagephobia.com/badge?p=ccmirrorstaline)](https://packagephobia.com/result?p=ccmirrorstaline)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/sirmalloc/ccmirrorstaline/graphs/commit-activity)
 
 [![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge.svg)](https://github.com/hesreallyhim/awesome-claude-code)
 [![ClaudeLog - A comprehensive knowledge base for Claude](https://claudelog.com/img/claude_log_badge.svg)](https://claudelog.com/)
 
 
-![Demo](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/demo.gif)
+![Demo](https://raw.githubusercontent.com/sirmalloc/ccmirrorstaline/main/screenshots/demo.gif)
 
 </div>
 
@@ -44,34 +46,32 @@
 
 ## 🆕 Recent Updates
 
-### v2.0.12 - Custom Text widget now supports emojis
+### v1.0.0 - Initial Release (Fork from ccstatusline)
 
-- **👾 Emoji Support** - You can now paste emoji into the custom text widget. You can also turn on the merge option to get emoji labels for your widgets like this:
-  
-![Emoji Support](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/emojiSupport.png)
+🎉 **Welcome to ccmirrorstaline!** This is the inaugural release of our fork, building upon the excellent foundation of ccstatusline with exciting new features:
 
-### v2.0.11 - Unlimited Status Lines
+#### 🪞 **AirCodeMirror Integration**
+- **AirCodeMirror Credits Display** - New dedicated widget to track and display accumulated AirCodeMirror credits
+- **Auto-Reset Functionality** - Smart automatic credit reset capabilities for better session tracking
+- **Real-time Metrics** - Live updates of your AirCodeMirror usage statistics
 
-- **🚀 No Line Limit** - Configure as many status lines as you need - the 3-line limitation has been removed
+#### 🎨 **Enhanced PowerLine Experience**
+- **Improved Rendering** - Fixed merged items display when PowerLine mode is active with auto-alignment
+- **Better Visual Consistency** - Seamless widget alignment across multiple status lines
 
-### v2.0.10 - Git Updates
+#### 🔧 **Core Improvements**
+- **Enhanced TUI Components** - Improved interactive configuration menus
+- **Better Settings Management** - More robust configuration handling and migration
+- **Code Quality** - Minor formatting adjustments and stability improvements
 
-- **🌳 Git Worktree widget** - Shows the active worktree name when working with git worktrees
-- **👻 Hide 'no git' message toggle** - Git widgets now support hiding the 'no git' message when not in a repository (toggle with 'h' key while editing the widget)
-
-### v2.0.8 - Powerline Auto-Alignment
-
-![Powerline Auto-Alignment](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/autoAlign.png)
-
-- **🎯 Widget Alignment** - Auto-align widgets across multiple status lines in Powerline mode for a clean, columnar layout (toggle with 'a' in Powerline Setup)
-
-### v2.0.7 - Current Working Directory & Session Cost
-
-![Current Working Directory and Session Cost](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/cwdAndSessionCost.png)
-
-- **📁 Current Working Directory** - Display the current working directory with configurable segment display
-  - Set the number of path segments to show (e.g., show only last 2 segments: `.../Personal/ccstatusline`)
-  - Supports raw value mode for compact display
+#### 🙏 **Inherited Features from ccstatusline**
+All the powerful features from the original project:
+- **👾 Emoji Support** - Full emoji support in custom text widgets
+- **🚀 Unlimited Status Lines** - No limit on the number of configurable status lines
+- **🌳 Git Integration** - Comprehensive git status and worktree support
+- **🎯 PowerLine Auto-Alignment** - Beautiful columnar layouts in PowerLine mode
+- **📁 Current Working Directory** - Flexible path display options
+- **💰 Token Tracking** - Comprehensive Claude Code token usage metrics
   - Automatically truncates long paths with ellipsis
 - **💰 Session Cost Widget** - Track your Claude Code session costs (requires Claude Code 1.0.85+)
   - Displays total session cost in USD
@@ -85,7 +85,7 @@
 
 ### v2.0.2 - Block Timer Widget
 
-![Block Timer](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/blockTimerSmall.png)
+![Block Timer](https://raw.githubusercontent.com/sirmalloc/ccmirrorstaline/main/screenshots/blockTimerSmall.png)
 
 - **⏱️ Block Timer** - Track your progress through 5-hour Claude Code blocks
   - Displays time elapsed in current block as hours/minutes (e.g., "3hr 45m")
@@ -124,13 +124,13 @@
 
 ```bash
 # Run the configuration TUI with npm
-npx ccstatusline@latest
+npx ccmirrorstaline@latest
 
 # Or with Bun (faster)
-bunx ccstatusline@latest
+bunx ccmirrorstaline@latest
 ```
 
-### Configure ccstatusline
+### Configure ccmirrorstaline
 
 The interactive configuration tool provides a terminal UI where you can:
 - Configure multiple separate status lines
@@ -141,13 +141,13 @@ The interactive configuration tool provides a terminal UI where you can:
 - Install/uninstall to Claude Code settings
 - Preview your status line in real-time
 
-> 💡 **Tip:** Your settings are automatically saved to `~/.config/ccstatusline/settings.json`
+> 💡 **Tip:** Your settings are automatically saved to `~/.config/ccmirrorstaline/settings.json`
 
 ---
 
 ## 📖 Usage
 
-Once configured, ccstatusline automatically formats your Claude Code status line. The status line appears at the bottom of your terminal during Claude Code sessions.
+Once configured, ccmirrorstaline automatically formats your Claude Code status line. The status line appears at the bottom of your terminal during Claude Code sessions.
 
 ### 📊 Available Widgets
 
@@ -188,7 +188,7 @@ These settings affect where long lines are truncated, and where right-alignment 
 
 Configure global formatting preferences that apply to all widgets:
 
-![Global Options](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/global.png)
+![Global Options](https://raw.githubusercontent.com/sirmalloc/ccmirrorstaline/main/screenshots/global.png)
 
 #### Default Padding & Separators
 - **Default Padding** - Add consistent padding to the left and right of each widget
@@ -220,7 +220,7 @@ Configure global formatting preferences that apply to all widgets:
 
 The Block Timer widget helps you track your progress through Claude Code's 5-hour conversation blocks:
 
-![Block Timer](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/blockTimer.png)
+![Block Timer](https://raw.githubusercontent.com/sirmalloc/ccmirrorstaline/main/screenshots/blockTimer.png)
 
 **Display Modes:**
 - **Time Display** - Shows elapsed time as "3hr 45m" (default)
@@ -268,7 +268,7 @@ Execute shell commands and display their output dynamically:
 
 > ⚠️ **Important:** Commands should complete quickly to avoid delays. Long-running commands will be killed after the configured timeout. If you're not seeing output from your custom command, try increasing the timeout value (press 't' in the editor).
 
-> 💡 **Tip:** Custom commands can be other Claude Code compatible status line formatters! They receive the same JSON via stdin that ccstatusline receives from Claude Code, allowing you to chain or combine multiple status line tools.
+> 💡 **Tip:** Custom commands can be other Claude Code compatible status line formatters! They receive the same JSON via stdin that ccmirrorstaline receives from Claude Code, allowing you to chain or combine multiple status line tools.
 
 ---
 
@@ -281,7 +281,7 @@ Execute shell commands and display their output dynamically:
 3. Set timeout: `5000` (5 seconds for initial download)
 4. Enable "preserve colors" to keep ccusage's color formatting
 
-![ccusage integration](https://raw.githubusercontent.com/sirmalloc/ccstatusline/main/screenshots/ccusage.png)
+![ccusage integration](https://raw.githubusercontent.com/sirmalloc/ccmirrorstaline/main/screenshots/ccusage.png)
 
 > 📄 **How it works:** The command receives Claude Code's JSON data via stdin, allowing ccusage to access session information, model details, and transcript data for accurate usage tracking.
 
@@ -303,8 +303,8 @@ When terminal width is detected, status lines automatically truncate with ellips
 
 ```bash
 # Clone the repository
-git clone https://github.com/sirmalloc/ccstatusline.git
-cd ccstatusline
+git clone https://github.com/sirmalloc/ccmirrorstaline.git
+cd ccmirrorstaline
 
 # Install dependencies
 bun install
@@ -314,7 +314,7 @@ bun install
 
 ```bash
 # Run in TUI mode (configuration)
-bun run src/ccstatusline.ts
+bun run src/ccmirrorstaline.ts
 
 # Build for distribution
 bun run build
@@ -323,9 +323,9 @@ bun run build
 ### 📁 Project Structure
 
 ```
-ccstatusline/
+ccmirrorstaline/
 ├── src/
-│   ├── ccstatusline.ts         # Main entry point
+│   ├── ccmirrorstaline.ts         # Main entry point
 │   ├── tui/                    # React/Ink configuration UI
 │   │   ├── App.tsx             # Root TUI component
 │   │   ├── index.tsx           # TUI entry point
@@ -399,13 +399,28 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
+## 🔗 Related Projects
+
+### 🙏 Built Upon Excellence
+
+- **[ccstatusline](https://github.com/hesreallyhim/ccstatusline)** by [@hesreallyhim](https://github.com/hesreallyhim) - The original, innovative status line formatter that served as the foundation for this project
+- **[awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)** - Comprehensive collection of Claude Code tools and resources
+
+### 🤝 Community Ecosystem
+
+If you're interested in Claude Code development tools, check out the broader community:
+- [Claude Code Official Documentation](https://claude.ai/code)
+- [Claude Code GitHub Discussions](https://github.com/anthropics/claude-code/discussions)
+
+---
+
 ## Star History
 
-<a href="https://www.star-history.com/#sirmalloc/ccstatusline&Timeline">
+<a href="https://www.star-history.com/#sirmalloc/ccmirrorstaline&Timeline">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sirmalloc/ccstatusline&type=Timeline&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=sirmalloc/ccstatusline&type=Timeline" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=sirmalloc/ccstatusline&type=Timeline" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sirmalloc/ccmirrorstaline&type=Timeline&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=sirmalloc/ccmirrorstaline&type=Timeline" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=sirmalloc/ccmirrorstaline&type=Timeline" />
  </picture>
 </a>
 
@@ -415,21 +430,21 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Give a ⭐ if this project helped you!
 
-[![GitHub stars](https://img.shields.io/github/stars/sirmalloc/ccstatusline?style=social)](https://github.com/sirmalloc/ccstatusline/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/sirmalloc/ccstatusline?style=social)](https://github.com/sirmalloc/ccstatusline/network/members)
-[![GitHub watchers](https://img.shields.io/github/watchers/sirmalloc/ccstatusline?style=social)](https://github.com/sirmalloc/ccstatusline/watchers)
+[![GitHub stars](https://img.shields.io/github/stars/sirmalloc/ccmirrorstaline?style=social)](https://github.com/sirmalloc/ccmirrorstaline/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/sirmalloc/ccmirrorstaline?style=social)](https://github.com/sirmalloc/ccmirrorstaline/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/sirmalloc/ccmirrorstaline?style=social)](https://github.com/sirmalloc/ccmirrorstaline/watchers)
 
-[![npm version](https://img.shields.io/npm/v/ccstatusline.svg)](https://www.npmjs.com/package/ccstatusline)
-[![npm downloads](https://img.shields.io/npm/dm/ccstatusline.svg)](https://www.npmjs.com/package/ccstatusline)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sirmalloc/ccstatusline/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/ccmirrorstaline.svg)](https://www.npmjs.com/package/ccmirrorstaline)
+[![npm downloads](https://img.shields.io/npm/dm/ccmirrorstaline.svg)](https://www.npmjs.com/package/ccmirrorstaline)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sirmalloc/ccmirrorstaline/blob/main/LICENSE)
 [![Made with Bun](https://img.shields.io/badge/Made%20with-Bun-000000.svg?logo=bun)](https://bun.sh)
 
-[![Issues](https://img.shields.io/github/issues/sirmalloc/ccstatusline)](https://github.com/sirmalloc/ccstatusline/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/sirmalloc/ccstatusline)](https://github.com/sirmalloc/ccstatusline/pulls)
-[![Contributors](https://img.shields.io/github/contributors/sirmalloc/ccstatusline)](https://github.com/sirmalloc/ccstatusline/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/sirmalloc/ccmirrorstaline)](https://github.com/sirmalloc/ccmirrorstaline/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/sirmalloc/ccmirrorstaline)](https://github.com/sirmalloc/ccmirrorstaline/pulls)
+[![Contributors](https://img.shields.io/github/contributors/sirmalloc/ccmirrorstaline)](https://github.com/sirmalloc/ccmirrorstaline/graphs/contributors)
 
 ### 💬 Connect
 
-[Report Bug](https://github.com/sirmalloc/ccstatusline/issues) · [Request Feature](https://github.com/sirmalloc/ccstatusline/issues) · [Discussions](https://github.com/sirmalloc/ccstatusline/discussions)
+[Report Bug](https://github.com/sirmalloc/ccmirrorstaline/issues) · [Request Feature](https://github.com/sirmalloc/ccmirrorstaline/issues) · [Discussions](https://github.com/sirmalloc/ccmirrorstaline/discussions)
 
 </div>

@@ -53,7 +53,7 @@ export const InstallMenu: React.FC<InstallMenuProps> = ({
 
     return (
         <Box flexDirection='column'>
-            <Text bold>Install ccstatusline to Claude Code</Text>
+            <Text bold>Install ccmirrorstaline to Claude Code</Text>
 
             {existingStatusLine && (
                 <Box marginBottom={1}>

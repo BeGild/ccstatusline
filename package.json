@@ -1,11 +1,11 @@
 {
-  "name": "ccstatusline",
-  "version": "2.0.13",
-  "description": "A customizable status line formatter for Claude Code CLI",
+  "name": "ccmirrorstaline",
+  "version": "1.0.0",
+  "description": "A customizable status line formatter for Claude Code CLI with AirCodeMirror integration",
   "module": "src/ccstatusline.ts",
   "type": "module",
   "bin": {
-    "ccstatusline": "dist/ccstatusline.js"
+    "ccmirrorstaline": "dist/ccstatusline.js"
   },
   "files": [
     "dist/"
@@ -50,13 +50,15 @@
     "claude-code",
     "cli",
     "status-line",
-    "terminal"
+    "terminal",
+    "aircodemirror",
+    "mirror"
   ],
   "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sirmalloc/ccstatusline.git"
+    "url": "git+https://github.com/sirmalloc/ccmirrorstaline.git"
   },
   "engines": {
     "node": ">=14.0.0"
