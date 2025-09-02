@@ -16,7 +16,7 @@
 
 > **🙏 Acknowledgments**: This project builds upon two excellent open source foundations:
 > - Originally forked from [ccstatusline](https://github.com/hesreallyhim/ccstatusline) by [@hesreallyhim](https://github.com/hesreallyhim) for the core status line functionality
-> - Inspired by [cc-aicodemirror-statusline-plus](https://github.com/) for the AirCodeMirror integration concepts and API patterns
+> - Inspired by [cc-aicodemirror-statusline-plus](https://github.com/Bozhu12/cc-aicodemirror-statusline-plus) by [@Bozhu12](https://github.com/Bozhu12) for the AirCodeMirror integration concepts and API patterns
 > 
 > We extend our gratitude to both projects for their innovative work and open source contributions to the Claude Code community.
 
@@ -408,7 +408,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ### 🙏 Built Upon Excellence
 
 - **[ccstatusline](https://github.com/hesreallyhim/ccstatusline)** by [@hesreallyhim](https://github.com/hesreallyhim) - The original, innovative status line formatter that served as the foundation for this project
-- **[cc-aicodemirror-statusline-plus](https://github.com/)** - Provided inspiration for AirCodeMirror integration patterns and API implementations
+- **[cc-aicodemirror-statusline-plus](https://github.com/Bozhu12/cc-aicodemirror-statusline-plus)** by [@Bozhu12](https://github.com/Bozhu12) - Provided inspiration for AirCodeMirror integration patterns and API implementations
 - **[awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code)** - Comprehensive collection of Claude Code tools and resources
 
 ### 🤝 Community Ecosystem
