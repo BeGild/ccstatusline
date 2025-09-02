@@ -66,8 +66,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({ onSelect, isClaudeInstalled,
             powerline: 'Install Powerline fonts for enhanced visual separators and symbols in your status line',
             globalOverrides: 'Set global padding, separators, and color overrides that apply to all widgets',
             install: isClaudeInstalled
-                ? 'Remove ccstatusline from your Claude Code settings'
-                : 'Add ccstatusline to your Claude Code settings for automatic status line rendering',
+                ? 'Remove ccmirrorstaline from your Claude Code settings'
+                : 'Add ccmirrorstaline to your Claude Code settings for automatic status line rendering',
             terminalConfig: 'Configure terminal-specific settings for optimal display',
             save: 'Save all changes and exit the configuration tool',
             exit: hasChanges

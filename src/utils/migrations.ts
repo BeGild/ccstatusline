@@ -85,7 +85,7 @@ export const migrations: Migration[] = [
 
             // Add update message for v2 migration
             migrated.updatemessage = {
-                message: 'ccstatusline updated to v2.0.0, launch tui to use new settings',
+                message: 'ccmirrorstaline updated to v2.0.0, launch tui to use new settings',
                 remaining: 12
             };
 
@@ -105,7 +105,7 @@ export const migrations: Migration[] = [
 
             // Add update message for v3 migration
             migrated.updatemessage = {
-                message: 'ccstatusline updated to v2.0.2, 5hr block timer widget added',
+                message: 'ccmirrorstaline updated to v2.0.2, 5hr block timer widget added',
                 remaining: 12
             };
 
