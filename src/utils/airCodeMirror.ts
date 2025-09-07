@@ -1,6 +1,6 @@
 /**
  * AirCodeMirror Integration Utilities
- * 
+ *
  * API integration patterns inspired by cc-aicodemirror-statusline-plus
  * https://github.com/Bozhu12/cc-aicodemirror-statusline-plus
  */
@@ -16,7 +16,17 @@ interface CreditsCache {
 class AirCodeMirrorManager {
     private cache: CreditsCache | null = null;
 
+    private isAirCodeMirrorEnvironment(): boolean {
+        const baseUrl = process.env.ANTHROPIC_BASE_URL ?? '';
+        return baseUrl.includes('aicodemirror.com');
+    }
+
     async getCredits(settings: Settings): Promise<AirCodeMirrorData | null> {
+        // Check if we're using AirCodeMirror
+        if (!this.isAirCodeMirrorEnvironment()) {
+            return null;
+        }
+
         const config = settings.airCodeMirror;
         if (!config?.enabled || !config.cookies) {
             return null;
@@ -29,23 +39,36 @@ class AirCodeMirrorManager {
         const data = await this.fetchCreditsFromAPI(config.cookies);
         if (data) {
             this.updateCache(data);
+
+            // 积分刷新后自动检查是否需要重置
+            await this.checkAndTriggerResetIfNeeded(data, config);
         }
 
         return data;
     }
 
     async checkAndResetCredits(settings: Settings): Promise<boolean> {
+        // 这个方法现在主要用于手动触发重置
+        // 日常的积分检查和重置已经集成到 getCredits 方法中
+
+        if (!this.isAirCodeMirrorEnvironment()) {
+            return true;
+        }
+
         const config = settings.airCodeMirror;
-        if (!config?.enabled || !config.autoResetEnabled || !config.cookies) {
+        if (!config?.enabled || !config.cookies) {
             return false;
         }
 
+        // 强制刷新积分数据（会自动检查并重置）
+        this.clearCache();
         const credits = await this.getCredits(settings);
-        if (!credits || credits.credits >= config.creditThreshold) {
-            return false;
-        }
 
-        return await this.triggerCreditReset(config.cookies);
+        return credits !== null;
+    }
+
+    clearCreditsCache(): void {
+        this.clearCache();
     }
 
     private async fetchCreditsFromAPI(cookies: string): Promise<AirCodeMirrorData | null> {
@@ -103,6 +126,37 @@ class AirCodeMirrorManager {
             timestamp: Date.now() / 1000
         };
     }
+
+    private async checkAndTriggerResetIfNeeded(data: AirCodeMirrorData, config: NonNullable<Settings['airCodeMirror']>): Promise<void> {
+        // 如果未启用自动重置，直接返回
+        if (!config.autoResetEnabled) {
+            return;
+        }
+
+        const currentCredits = data.credits || 0;
+
+        // 如果积分高于阈值，不需要重置
+        if (currentCredits >= config.creditThreshold) {
+            return;
+        }
+
+        // 检查 cookies 是否可用
+        if (!config.cookies) {
+            return;
+        }
+
+        // 积分低于阈值，尝试重置
+        const resetSuccess = await this.triggerCreditReset(config.cookies);
+
+        if (resetSuccess) {
+            // 重置成功后，清除缓存以确保下次获取最新数据
+            this.cache = null;
+        }
+    }
+
+    private clearCache(): void {
+        this.cache = null;
+    }
 }
 
 const airCodeMirrorManager = new AirCodeMirrorManager();
@@ -113,4 +167,8 @@ export async function getAirCodeMirrorData(settings: Settings): Promise<AirCodeM
 
 export async function checkAndResetAirCodeMirrorCredits(settings: Settings): Promise<boolean> {
     return await airCodeMirrorManager.checkAndResetCredits(settings);
+}
+
+export function clearAirCodeMirrorCache(): void {
+    airCodeMirrorManager.clearCreditsCache();
 }

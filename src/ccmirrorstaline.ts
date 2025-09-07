@@ -173,8 +173,10 @@ async function renderMultipleLines(data: StatusJSON) {
 async function main() {
     // Check if we're in a piped/non-TTY environment first
     if (!process.stdin.isTTY) {
-        // Check if this is a session end hook
-        if (process.env.CLAUDE_SESSION_END === 'true') {
+        // Check if this is a session end hook - support multiple trigger mechanisms
+        if (process.env.CLAUDE_SESSION_END === 'true'
+            || process.argv.includes('--session-end')
+            || process.argv.includes('--refresh-credits')) {
             await handleSessionEnd();
             return;
         }
@@ -214,12 +216,18 @@ async function main() {
 
 async function handleSessionEnd(): Promise<void> {
     try {
+        // Check if we're using AirCodeMirror environment
+        const baseUrl = process.env.ANTHROPIC_BASE_URL ?? '';
+        if (!baseUrl.includes('aicodemirror.com')) {
+            return; // Not using AirCodeMirror, skip credit reset
+        }
+
         const settings = await loadSettings();
         if (settings.airCodeMirror?.enabled && settings.airCodeMirror.autoResetEnabled) {
             await checkAndResetAirCodeMirrorCredits(settings);
         }
     } catch {
-        // Silent error handling
+        // Silent error handling - don't interrupt Claude Code operation
     }
 }
 
